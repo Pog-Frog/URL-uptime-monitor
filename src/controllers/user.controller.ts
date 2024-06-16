@@ -40,7 +40,7 @@ export class UserController {
 
             findToken.remove();
             await findUser.save();
-            return res.status(200).json({ message: "IUser verified" });
+            return res.status(200).json({ message: "User verified" });
         } catch (error) {
             next(error);
         }
