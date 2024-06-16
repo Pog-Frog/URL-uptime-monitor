@@ -6,6 +6,7 @@ const userSchema: Schema = new Schema({
         name: {type: String, minlength: 3, maxlength: 50, required: [true, 'Name is required']},
         email: {type: String, required: [true, 'Email is required'], unique: true},
         hashedPassword: {type: String, required: [true, 'Password is required']},
+        verifiedAt: {type: Date, required: false, default: null},
     },
     {timestamps: true}
 );
