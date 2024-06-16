@@ -28,4 +28,4 @@ const urlCheckSchema: Schema = new Schema({
     {timestamps: true}
 );
 
-export const UrlCheck = model<IUrlCheck, Document>('UrlCheck', urlCheckSchema);
+export const UrlCheck = model<IUrlCheck & Document>('UrlCheck', urlCheckSchema);

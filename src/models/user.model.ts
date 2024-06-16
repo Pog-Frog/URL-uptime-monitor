@@ -17,4 +17,4 @@ userSchema.methods.toJSON = function () {
 };
 
 
-export const User = model<IUser, Document>('User', userSchema);
+export const User = model<IUser & Document>('User', userSchema);
