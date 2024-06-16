@@ -28,6 +28,10 @@ export class UrlCheckService {
             if (!findUser) throw new HttpException(409, `The user ${urlCheckData.userId} does not exist`);
         }
 
+        if (urlCheckData.webhook) {
+            if (!isValidUrl(urlCheckData.webhook)) throw new HttpException(409, `The webhook ${urlCheckData.webhook} is not a valid url`);
+        }
+
         const createdUrlCheck: IUrlCheck = await UrlCheck.create({
             ...urlCheckData
         });
