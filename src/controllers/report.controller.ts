@@ -5,6 +5,7 @@ import { ReportService } from '../services/report.service';
 
 
 export class ReportController {
+    
     public reportService = Container.get(ReportService);
 
     public createReport = async (req: Request, res: Response, next: NextFunction) => {
