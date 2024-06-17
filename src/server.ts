@@ -1,24 +1,13 @@
-import express from 'express';
-import mongoose from 'mongoose';
+import { App } from "./app";
+import { AuthRoute } from "./routes/auth.route";
+import { UserRoute } from "./routes/user.route";
+import { ReportRoute } from "./routes/report.route";
 
-const app = express();
 
-app.get('/', (req, res) => {
-        res.send('Hello World!');
-    }
+const app = new App(
+    [
+        new AuthRoute(),
+        new UserRoute(),
+        new ReportRoute()
+    ]
 );
-
-mongoose.connect('mongodb://mongodb:27017/test');
-const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-
-db.once('open', function () {
-        console.log('Connected to MongoDB');
-    }
-);
-app.listen(3000, () => {
-        console.log('Server is running on port 3000');
-    }
-);
-
-export default app;
